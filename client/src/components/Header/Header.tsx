@@ -8,11 +8,28 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import { useState } from "react";
-import { Maximize2, Minimize2 } from 'lucide-react';
+import { CircleUserRound, Maximize2, Minimize2, Moon, Sun } from 'lucide-react';
+import { Button } from "@/components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuLabel,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
 
 function Header() {
 
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+
+  function toggleTheme() {
+    setDarkMode(!darkMode);
+    document.documentElement.classList.toggle("dark");
+  }
 
   const toggleFullscreen = async () => {
     try {
@@ -31,9 +48,9 @@ function Header() {
   
   return (
     <>
-      <div className="flex justify-between h-[8vh] sticky top-0 w-full">
+      <div className="flex justify-between h-[20px] sticky top-2 w-full bg-[var(--background)]">
 
-        <div className="p-2 text-sm font-semibold">
+        <div className="p-2 text-sm lg:text-lg 2xl:text-xl font-semibold">
           TerraLID
         </div>
 
@@ -43,25 +60,25 @@ function Header() {
 
               <NavigationMenuItem>
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                  <Link to="/">Map</Link>
+                  <Link to="/" className="text-sm lg:text-lg 2xl:text-xl">Map</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                  <Link to="/about">Explore</Link>
+                  <Link to="/explore" className="text-sm lg:text-lg 2xl:text-xl">Explore</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                  <Link to="/contact">References</Link>
+                  <Link to="/references" className="text-sm lg:text-lg 2xl:text-xl">References</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                  <Link to="/contact">Instructions</Link>
+                  <Link to="/instructions" className="text-sm lg:text-lg 2xl:text-xl">Instructions</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
@@ -69,11 +86,33 @@ function Header() {
           </NavigationMenu>
         </div>
 
-        <div className="p-2">
-          <button onClick={toggleFullscreen}>
-            {isFullscreen ? <Minimize2 size={20} /> : <Maximize2 size={20}/>}
+        <div className="p-1">
+          <button onClick={toggleTheme} className="pr-2">
+            {darkMode ? <Sun size={18} /> : <Moon size={18} />} 
           </button>
+          <button onClick={toggleFullscreen}>
+            {isFullscreen ? <Minimize2 size={18} /> : <Maximize2 size={18}/>}
+          </button>
+
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" ><CircleUserRound /></Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="min-w-56">
+              <DropdownMenuGroup>
+                <DropdownMenuRadioGroup
+                >
+                  <DropdownMenuRadioItem value="paypal">
+                    Login with ORCID
+                  </DropdownMenuRadioItem>
+                  
+                </DropdownMenuRadioGroup>
+              </DropdownMenuGroup>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
+
+
 
       </div>
     </>

@@ -128,3 +128,11 @@
     @apply font-sans;
     }
 }
+
+@layer components {
+
+  .text-size {
+    @apply text-sm md:text-base lg:text-lg ;
+  }
+
+}

@@ -1,15 +1,15 @@
 import './App.css'
-import { BrowserRouter } from "react-router-dom"
+import 'leaflet/dist/leaflet.css';
+
 import Home from './components/Home'
 
 function App() {
   
+
+
   return (
     <>
-      <BrowserRouter>
-        <Home />
-        
-      </BrowserRouter>
+      <Home/>
     </>
   )
 }
