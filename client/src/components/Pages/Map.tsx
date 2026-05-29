@@ -15,7 +15,7 @@ function Map() {
     if (mapInstanceRef.current) return;
 
     const map = L.map(mapElementRef.current).setView(
-      [51.505, -0.09],
+      [51.48867, 7.21685],
       13
     );
 

@@ -48,9 +48,9 @@ function Header() {
   
   return (
     <>
-      <div className="flex justify-between h-[20px] sticky top-2 w-full bg-[var(--background)]">
+      <div className="flex justify-between fixed w-full bg-[var(--background)] p-2">
 
-        <div className="p-2 text-sm lg:text-lg 2xl:text-xl font-semibold">
+        <div className="text-sm lg:text-lg 2xl:text-xl ">
           TerraLID
         </div>
 
@@ -60,25 +60,25 @@ function Header() {
 
               <NavigationMenuItem>
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                  <Link to="/" className="text-sm lg:text-lg 2xl:text-xl">Map</Link>
+                  <Link to="/" className="text-sm lg:text-sm 2xl:text-xl">Map</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                  <Link to="/explore" className="text-sm lg:text-lg 2xl:text-xl">Explore</Link>
+                  <Link to="/explore" className="text-sm lg:text-sm 2xl:text-xl">Explore</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                  <Link to="/references" className="text-sm lg:text-lg 2xl:text-xl">References</Link>
+                  <Link to="/references" className="text-sm lg:text-sm 2xl:text-xl">References</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                  <Link to="/instructions" className="text-sm lg:text-lg 2xl:text-xl">Instructions</Link>
+                  <Link to="/instructions" className="text-sm lg:text-sm 2xl:text-xl">Instructions</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
